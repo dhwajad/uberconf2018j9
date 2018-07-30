@@ -1,0 +1,144 @@
+Getting Up To Speed with Java 9
+Venkat Subramaniam
+venkats@agiledeveloper.com
+@venkat_s
+
+Repository:
+On the Mac:-
+svn co https://www.agiledeveloper.com/svn/code/uberconf2018j9 
+
+On Windows:-
+Tortoise svn
+	Right click on windows explorer, TortoiseSVN checkout
+	https://www.agiledeveloper.com/svn/code/uberconf2018j9 
+
+userid: uberconf2018j9
+Password: flatiron
+
+You may also use git-svn
+
+Java 9: What's special?:
+✓Most significant update
+✓Improvements
+✓Additions
+✓Advances
+
+Part 1:
+✓interface private methods
+✓No _
+✓try-with-resources and final reference
+✓finalize deprecated
+✓Stream: takeWhile and dropWhile
+✓iterate
+✓Optional improvements
+✓Lab
+
+Part 2:
+✓filtering
+✓flatMapping
+✓Lab
+
+Part 3:
+✓of methods
+✓CompletableFuture timeout
+✓Lab
+
+Part 4:
+✓StackWalker
+✓Lab
+
+Part 5:
+✓Modules
+✓What's the problem?
+ ✓ large jars, especially rt.jar
+ ✓ lack of clarify on dependencies
+ ✓ public is too open
+ ✓ late runtime failures
+✓Packages into modules
+✓JDK is modularized, we can modularize our code same way
+✓Rule: no cycles at compile time
+✓What's a module?
+  ✓ a collection of code (packages) and data
+  ✓ has a name
+  ✓ tells what it needs (requires)
+  ✓ tells what it provides (exports)
+
+Creating Modules:
+✓ Let's define a module
+✓ module-info.java in a top level directory
+✓ requires
+✓ exports
+✓ create a module
+✓ exports to
+
+Visibility:
+✓ Readability
+	✓ A module "reads" the modules it depends on
+✓ exports
+✓ public is not the same any more
+✓ public + exports becomes visible
+✓ public with no exports is not visible
+✓ that's both at compile time and runtime
+
+Implied Readability:
+✓ Passing on what you use to your uses
+✓ Explicit requires
+✓ implicit requires
+✓ exports to and implied readability
+
+✓lab
+  
+Part 6: 
+
+Encapsulation & Reflection:
+✓Deep Reflection
+✓open module
+✓opens package                   
+
+Targeted Linking:        
+✓ linking custom runtime image
+  ✓ targeted executable
+  ✓jlink
+	✓ jlink --modulepath mlib1:mlib2 --addmods mlib1 --addmods mlib2 --output myapp
+	✓ ./myapp/bin/java -listmods
+	✓ ./myapp/bin/java -m modulename  
+	
+	or
+	
+	✓ ./myapp/bin/myappname
+
+✓lab
+
+Part 7: 
+
+Service Loader API:
+✓Inversion of Control
+✓ServiceLoader API
+✓provides X with Y
+✓uuses X
+✓ServiceLoader.load
+✓ServiceLoader and instances
+✓reload
+✓provider method vs. constructor
+✓stream of providers
+                                                                     
+✓lab
+
+Part 8: 
+
+Transitioning:
+✓ automatic modules
+  ✓ good old jars in the modules path
+	✓use when transitioning your code that uses non-modularized code
+	✓name derived from Jar file name
+	✓better to define one in the manifest for future use
+	
+Grandfathering:
+✓ Running pre-Java 9 code under Java 9
+ ✓ unnamed modules
+   ✓ all on classpath is in one big unnamed module
+   ✓ it reads every named module
+   ✓ it exports all its packages  
+   ✓ code in a named module can't depend on code in an unnamed module
+
+✓lab

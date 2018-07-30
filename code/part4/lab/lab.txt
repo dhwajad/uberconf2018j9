@@ -1,0 +1,1 @@
+In this lab we will create a method, in a Util class, that will print the details of the calling method: The name, the class it belongs to, and the line number from which this method was called. Then call it from a main method and also from within an instance method.

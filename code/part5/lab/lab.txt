@@ -1,0 +1,3 @@
+In this lab we will create modules and make use of them.
+
+A build file is provided for your convenience to easily compile and run the code.
